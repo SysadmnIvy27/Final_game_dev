@@ -3,5 +3,6 @@
 /android/
 # Extra attributes
 .import/
+*.import
 export.cfg
 export_presets.cfg
