@@ -24,6 +24,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Final_game_dev"
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+
 [input]
 
 jump={
