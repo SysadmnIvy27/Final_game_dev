@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.4
+- oliver update
+- label for oliver
+- future plan: give oliver AI to move to places in order
+
 ## hotfix v0.0.3.1
 - fixed issue where debug targets did not recognize they were being hit
 - added signal logic to projectile instead of process logic for detection

@@ -4,9 +4,10 @@ var owner_entity : Node
 @onready var movement_marker : Node
 @onready var attack_range = $attack_area
 @onready var timer = $Cooldown
+@onready var tooltip = $tooltip
 @export var projectile_scene : PackedScene
 var has_owner = false
-const SPEED = 100.0
+var SPEED = 100.0
 var team
 var cooldown = 1
 var follow_dist = 20
@@ -45,3 +46,4 @@ func interact(entity):
 		team = owner_entity.team
 		movement_marker = entity.get_node("marker_oli")
 		has_owner = true
+		tooltip.visible = false

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dyhkonspjck05" path="res://entities/items/oliver_item/oliver_item.gd" id="1_3g5mp"]
 [ext_resource type="PackedScene" uid="uid://c1mqgtlmld1l0" path="res://entities/projectiles/oli_projectile/oli_projectile.tscn" id="2_oriv4"]
-[ext_resource type="Texture2D" uid="uid://bblxkr8ixfihr" path="res://assets/entities/items/oliver/oliver.png" id="3_plduh"]
+[ext_resource type="Texture2D" uid="uid://dsjsqpn7wijmk" path="res://assets/entities/items/oliver/oliver.png" id="3_plduh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cw7c"]
 
@@ -29,3 +29,10 @@ shape = SubResource("CircleShape2D_b1ji6")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=267831332]
 one_shot = true
+
+[node name="tooltip" type="Label" parent="." unique_id=78869873]
+offset_left = -73.0
+offset_top = -41.0
+offset_right = 75.0
+offset_bottom = -18.0
+text = "Press 'E' to interact"
