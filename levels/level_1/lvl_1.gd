@@ -13,6 +13,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	for body in world_border.get_overlapping_bodies():
-		body.global_position = respawn_point.global_position
+		if body.is_in_group("reset_on_fall"):
+			body.global_position = respawn_point.global_position
 	for area in world_border.get_overlapping_areas():
-		area.global_position = respawn_point.global_position
+		if area.is_in_group("reset_on_fall"):
+			area.global_position = respawn_point.global_position

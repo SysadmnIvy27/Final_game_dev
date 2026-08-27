@@ -12,6 +12,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		for area in interaction_range.get_overlapping_areas():
 			if area.is_in_group("interactable"):
+				print("interacting with " + area.name)
 				area.interact(self)
 	
 	# Add the gravity.
