@@ -3,30 +3,34 @@
 [ext_resource type="Script" uid="uid://bv3hcxywb8qbn" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://c4ba0wtr5726o" path="res://ui/hud/hud.tscn" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://c5vg8nqoipvl6" path="res://assets/player/player.png" id="1_rkbax"]
-[ext_resource type="PackedScene" uid="uid://nckq0eghpx3r" path="res://entities/items/oliver_item.tscn" id="4_yw30f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1ji6"]
 radius = 11.0
 height = 34.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1ji6"]
+radius = 30.016663
+
 [node name="Player" type="CharacterBody2D" unique_id=2113876882]
 script = ExtResource("1_g1dw6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=71871795]
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=71871795]
 shape = SubResource("CapsuleShape2D_b1ji6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1216738642]
 texture = ExtResource("1_rkbax")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1357637743]
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1922334346]
 
 [node name="Hud" parent="CanvasLayer" unique_id=2078612702 instance=ExtResource("1_oul6g")]
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=207323424]
+[node name="marker_oli" type="Marker2D" parent="." unique_id=207323424]
 position = Vector2(-18, -22)
 
-[node name="OliverItem" parent="." unique_id=1991690156 instance=ExtResource("4_yw30f")]
-position = Vector2(9.372429, -21.99907)
+[node name="interaction_range" type="Area2D" parent="." unique_id=1749427967]
+
+[node name="interaction_range_area" type="CollisionShape2D" parent="interaction_range" unique_id=1712449389]
+shape = SubResource("CircleShape2D_b1ji6")

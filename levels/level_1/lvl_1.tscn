@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bccmtbp0l4ybv" path="res://assets/level/main_tilest.png" id="1_2i0mi"]
 [ext_resource type="Script" uid="uid://bolmnm26c5ybl" path="res://levels/level_1/lvl_1.gd" id="1_ucyor"]
-[ext_resource type="PackedScene" uid="uid://nckq0eghpx3r" path="res://entities/items/oliver_item.tscn" id="3_hose7"]
+[ext_resource type="PackedScene" uid="uid://nckq0eghpx3r" path="res://entities/items/oliver_item/oliver_item.tscn" id="3_hose7"]
+[ext_resource type="PackedScene" uid="uid://br2htl5ajef0b" path="res://entities/items/debug_target/debug_target.tscn" id="4_hxqgq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ucyor"]
 distance = -165.0
@@ -36,5 +37,14 @@ tile_set = SubResource("TileSet_b1ji6")
 [node name="respawn" type="Marker2D" parent="." unique_id=1930175228]
 position = Vector2(152, -64)
 
-[node name="OliverItem" parent="." unique_id=704252655 instance=ExtResource("3_hose7")]
-position = Vector2(-70, -17)
+[node name="OliverItem" parent="." unique_id=4346654 instance=ExtResource("3_hose7")]
+position = Vector2(-127, -36)
+
+[node name="DebugTarget" parent="." unique_id=1132471478 instance=ExtResource("4_hxqgq")]
+position = Vector2(123, -87)
+
+[node name="DebugTarget2" parent="." unique_id=2145369957 instance=ExtResource("4_hxqgq")]
+position = Vector2(-387, -163)
+
+[node name="DebugTarget3" parent="." unique_id=1896827752 instance=ExtResource("4_hxqgq")]
+position = Vector2(-413, -59)

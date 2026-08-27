@@ -1,11 +1,19 @@
 extends CharacterBody2D
 
-
+@onready var interaction_range = $interaction_range
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+var team = "friendly"
 
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("interact"):
+		for area in interaction_range.get_overlapping_areas():
+			if area.is_in_group("interactable"):
+				area.interact(self)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
