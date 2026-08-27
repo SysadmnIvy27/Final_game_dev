@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1ji6"]
 radius = 8.062258
 
-[node name="DebugTarget" type="Area2D" unique_id=1132471478 groups=["targetable"]]
+[node name="DebugTarget" type="Area2D" unique_id=1132471478 groups=["damagable", "targetable"]]
 script = ExtResource("1_u4c0a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1333445570]

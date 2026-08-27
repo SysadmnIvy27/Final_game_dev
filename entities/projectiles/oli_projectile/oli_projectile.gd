@@ -16,6 +16,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# movement logic
 	position += direction * speed * delta
-	if timer.is_stopped():
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("damagable"):
+		area.on_hit()
+		queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("damagable"):
+		body.on_hit()
 		queue_free()

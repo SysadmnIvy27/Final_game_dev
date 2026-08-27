@@ -29,6 +29,7 @@ project/assembly_name="Final_game_dev"
 interactable=""
 targetable=""
 reset_on_fall=""
+damagable=""
 
 [gui]
 
