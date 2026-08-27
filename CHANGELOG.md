@@ -1,5 +1,9 @@
 # Changelog
 
+## hotfix v0.0.3.1
+- fixed issue where debug targets did not recognize they were being hit
+- added signal logic to projectile instead of process logic for detection
+
 ## hotfix v0.0.3
 - fixed an issue where the interaction area would dissapear after player falls out of bounds
 - added global group 'reset_on_fall'
