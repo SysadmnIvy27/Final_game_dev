@@ -1,5 +1,4 @@
 extends Area2D
-
 var owner_entity : Node
 @onready var movement_marker : Node
 @onready var attack_range = $attack_area
@@ -11,6 +10,7 @@ var SPEED = 100.0
 var team
 var cooldown = 1
 var follow_dist = 20
+var teleport_dist = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,8 +22,10 @@ func _process(delta: float) -> void:
 	if has_owner:
 		var movement_direction = (movement_marker.global_position - global_position).normalized()
 		var dist = sqrt((global_position.x - movement_marker.global_position.x) ** 2 + (global_position.y - movement_marker.global_position.y) ** 2)
-		if dist > follow_dist:
+		if dist > follow_dist and dist < teleport_dist:
 			position += movement_direction * SPEED * delta
+		elif dist > teleport_dist:
+			global_position = movement_marker.global_position
 	if timer.is_stopped() and has_owner:
 		for area in attack_range.get_overlapping_areas():
 			if area.is_in_group("targetable") and area.team != team:

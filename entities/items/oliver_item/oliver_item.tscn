@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dyhkonspjck05" path="res://entities/items/oliver_item/oliver_item.gd" id="1_3g5mp"]
 [ext_resource type="PackedScene" uid="uid://c1mqgtlmld1l0" path="res://entities/projectiles/oli_projectile/oli_projectile.tscn" id="2_oriv4"]
-[ext_resource type="Texture2D" uid="uid://dsjsqpn7wijmk" path="res://assets/entities/items/oliver/oliver.png" id="3_plduh"]
+[ext_resource type="Texture2D" uid="uid://bblxkr8ixfihr" path="res://assets/entities/items/oliver/oliver.png" id="3_plduh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cw7c"]
 
@@ -12,14 +12,14 @@ atlas = ExtResource("3_plduh")
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1ji6"]
 radius = 110.0727
 
-[node name="OliverItem" type="Area2D" unique_id=4346654 groups=["interactable"]]
+[node name="OliverItem" type="Area2D" unique_id=1304631634 groups=["interactable"]]
 script = ExtResource("1_3g5mp")
 projectile_scene = ExtResource("2_oriv4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1121818888]
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=1121818888]
 shape = SubResource("RectangleShape2D_4cw7c")
 
-[node name="hitbox" type="Sprite2D" parent="." unique_id=904512027]
+[node name="sprite" type="Sprite2D" parent="." unique_id=904512027]
 texture = SubResource("AtlasTexture_i8nuk")
 
 [node name="attack_area" type="Area2D" parent="." unique_id=173856887]
