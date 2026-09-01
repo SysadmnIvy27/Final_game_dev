@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var team = "friendly"
+var drone : Node
 
 func _ready() -> void:
 	pass

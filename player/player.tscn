@@ -11,7 +11,7 @@ height = 34.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1ji6"]
 radius = 30.016663
 
-[node name="Player" type="CharacterBody2D" unique_id=2113876882 groups=["reset_on_fall"]]
+[node name="Player" type="CharacterBody2D" unique_id=2113876882 groups=["reset_on_fall", "targetable"]]
 script = ExtResource("1_g1dw6")
 
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=71871795 groups=["reset_on_fall"]]

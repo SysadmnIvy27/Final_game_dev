@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d0b7kskktr72p"]
+
+[ext_resource type="Texture2D" uid="uid://bc4b813e0o184" path="res://assets/entities/debug_item/debug_item.png" id="1_8j6jw"]
+[ext_resource type="Script" uid="uid://dsck77pdwlq14" path="res://entities/items/debug_item/debug_item.gd" id="1_i1lbj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ji6"]
+size = Vector2(16, 13)
+
+[node name="DebugItem" type="Area2D" unique_id=1900671782 groups=["interactable", "targetable"]]
+script = ExtResource("1_i1lbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2004203872 groups=["interactable", "targetable"]]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_b1ji6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=139718972]
+texture = ExtResource("1_8j6jw")

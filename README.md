@@ -6,3 +6,8 @@
 - [ ] Enemies
 - [ ] Goal?
 - [ ] Ui?
+- [ ] Lore?
+
+## Ideas
+- debug items (target, various controllable markers)
+- upgrades / tech tree / skill tree

@@ -10,7 +10,13 @@
 atlas = ExtResource("3_plduh")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1ji6"]
-radius = 110.0727
+radius = 101.0198
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mcl3r"]
+radius = 22.090721
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1i7ex"]
+radius = 261.00192
 
 [node name="OliverItem" type="Area2D" unique_id=1304631634 groups=["interactable"]]
 script = ExtResource("1_3g5mp")
@@ -26,6 +32,16 @@ texture = SubResource("AtlasTexture_i8nuk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area" unique_id=2065588032]
 shape = SubResource("CircleShape2D_b1ji6")
+
+[node name="interact_area" type="Area2D" parent="." unique_id=285405550]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_area" unique_id=811605516]
+shape = SubResource("CircleShape2D_mcl3r")
+
+[node name="detection_range" type="Area2D" parent="." unique_id=1433529188]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range" unique_id=1344928835]
+shape = SubResource("CircleShape2D_1i7ex")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=267831332]
 one_shot = true

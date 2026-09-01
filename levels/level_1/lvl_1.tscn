@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bolmnm26c5ybl" path="res://levels/level_1/lvl_1.gd" id="1_ucyor"]
 [ext_resource type="PackedScene" uid="uid://nckq0eghpx3r" path="res://entities/items/oliver_item/oliver_item.tscn" id="3_hose7"]
 [ext_resource type="PackedScene" uid="uid://br2htl5ajef0b" path="res://entities/items/debug_target/debug_target.tscn" id="4_hxqgq"]
+[ext_resource type="PackedScene" uid="uid://d0b7kskktr72p" path="res://entities/items/debug_item/debug_item.tscn" id="5_60wt0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ucyor"]
 distance = -165.0
@@ -48,3 +49,12 @@ position = Vector2(-387, -163)
 
 [node name="DebugTarget3" parent="." unique_id=1896827752 instance=ExtResource("4_hxqgq")]
 position = Vector2(-413, -59)
+
+[node name="DebugItem" parent="." unique_id=1900671782 instance=ExtResource("5_60wt0")]
+position = Vector2(-270, -35)
+
+[node name="DebugItem2" parent="." unique_id=955556481 instance=ExtResource("5_60wt0")]
+position = Vector2(295, -20)
+
+[node name="DebugItem3" parent="." unique_id=1112851371 instance=ExtResource("5_60wt0")]
+position = Vector2(-76, -324)
