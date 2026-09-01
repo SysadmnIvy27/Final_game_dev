@@ -1,0 +1,30 @@
+[gd_scene format=4 uid="uid://d0ts0d2i7lpl2"]
+
+[ext_resource type="Texture2D" uid="uid://d2glj8vnryooi" path="res://assets/level/main_ship_tiles/ship_foreground.png" id="1_6q8av"]
+[ext_resource type="PackedScene" uid="uid://nckq0eghpx3r" path="res://entities/items/oliver_item/oliver_item.tscn" id="3_otwf7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvtug"]
+texture = ExtResource("1_6q8av")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_b1ji6"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_pvtug")
+
+[node name="TutorialLevel" type="Node2D" unique_id=1734787136]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=464944721]
+tile_map_data = PackedByteArray("AAD7/wAAAAADAAAAAAD8/wAAAAABAAAAAAD9/wAAAAACAAAAAAD4/wEAAAAAAAAAAAD5/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAD+/wAAAAADAAAAAAD//wAAAAADAAAAAAAAAAAAAAADAAAAAAABAAAAAAADAAAAAAACAAAAAAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAD6/wAAAAADAAAAAAD5/wAAAAADAAAAAAD4/wAAAAADAAAAAAD4////AAADAAAAAAD4//7/AAADAAAAAAD4//3/AAADAAAAAAD4//z/AAADAAAAAAD4//v/AAADAAAAAAD5//v/AAADAAAAAAD6//v/AAADAAAAAAD7//v/AAADAAAAAAD8//v/AAADAAAAAAD9//v/AAADAAAAAAD+//v/AAADAAAAAAD///v/AAADAAAAAAAAAPv/AAADAAAAAAABAPv/AAADAAAAAAACAPv/AAADAAAAAAADAPv/AAADAAAAAAAEAPv/AAADAAAAAAAFAPv/AAADAAAAAAAGAPv/AAADAAAAAAAGAPz/AAADAAAAAAAGAAAAAAADAAAAAAAGAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_b1ji6")
+
+[node name="OlivarItem" parent="." unique_id=136021154 instance=ExtResource("3_otwf7")]
+position = Vector2(11, -45)

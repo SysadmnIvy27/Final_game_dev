@@ -18,7 +18,7 @@ radius = 22.090721
 [sub_resource type="CircleShape2D" id="CircleShape2D_1i7ex"]
 radius = 261.00192
 
-[node name="OliverItem" type="Area2D" unique_id=1304631634 groups=["interactable"]]
+[node name="OlivarItem" type="CharacterBody2D" unique_id=136021154 groups=["interactable"]]
 script = ExtResource("1_3g5mp")
 projectile_scene = ExtResource("2_oriv4")
 

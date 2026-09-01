@@ -1,4 +1,5 @@
-extends Area2D
+#extends Area2D
+extends CharacterBody2D
 
 var owner_entity : Node
 var movement_marker : Node
@@ -14,7 +15,7 @@ var debug = false
 var SPEED = 100.0
 var team
 var cooldown = 1
-var follow_dist = 20
+var follow_dist = 50
 var teleport_dist = 500
 var move_target : Node
 
@@ -24,7 +25,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if has_owner:
 		# gettitng targets
 		var targets : Array
@@ -66,26 +67,46 @@ func _process(delta: float) -> void:
 		
 		var dist = global_position.distance_to(move_target.global_position)
 		
-		if dist > follow_dist and dist < teleport_dist: # follow logic
-			position += movement_direction * SPEED * delta
+		if dist > follow_dist and dist < teleport_dist and move_target == movement_marker: # follow logic
+			velocity = movement_direction * SPEED
 		elif dist > teleport_dist and can_teleport: # teleportation logic
 			global_position = movement_marker.global_position
+		elif move_target != movement_marker:
+			velocity = movement_direction * SPEED
+		else:
+			if velocity.x > 1.4:
+				velocity.x -= 1
+			elif velocity.x < -1.4:
+				velocity.x += 1
+			elif velocity.x < 1.5 and velocity.x > -1.5:
+				velocity.x = 0
+			
+			if velocity.y > 1.4:
+				velocity.y -= 1
+			elif velocity.y < -1.4:
+				velocity.y += 1
+			elif velocity.y < 1.5 and velocity.y > -1.5:
+				velocity.y = 0
+			
+			print(str(velocity))
+			
+		move_and_slide()
 	
-	# attack logic
-	if timer.is_stopped() and has_owner:
-		for area in attack_range.get_overlapping_areas():
-			if area.is_in_group("targetable") and (area.team != team or area.team != "neutral"):
-				shoot(area)
-				timer.start(cooldown)
-				break
+		# attack logic
+		if timer.is_stopped() and has_owner:
+			for area in attack_range.get_overlapping_areas():
+				if area.is_in_group("targetable") and (area.team != "neutral" and area.team != team):
+					shoot(area)
+					timer.start(cooldown)
+					break
 				
-	# interact logic
-	for area in interact_range.get_overlapping_areas():
-		if area.is_in_group("interactable") and (area != owner_entity or area != self):
-			area.interact(self)
-	for body in interact_range.get_overlapping_bodies():
-		if body.is_in_group("interactable") and (body != owner_entity or body != self):
-			body.interact(self)
+		# interact logic
+		for area in interact_range.get_overlapping_areas():
+			if area.is_in_group("interactable") and (area != owner_entity and area != self):
+				area.interact(self)
+		for body in interact_range.get_overlapping_bodies():
+			if body.is_in_group("interactable") and (body != owner_entity and body != self):
+				body.interact(self)
 
 func shoot(entity):
 	var projectile = projectile_scene.instantiate() #instance projectile

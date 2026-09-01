@@ -4,7 +4,6 @@
 - oliver update 3
 - adds interaction, attacking, and detection to oliver
 
-
 ## v0.0.4
 - oliver update 2
 - label for oliver

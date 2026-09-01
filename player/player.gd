@@ -15,6 +15,12 @@ func _physics_process(delta: float) -> void:
 			if area.is_in_group("interactable"):
 				print("interacting with " + area.name)
 				area.interact(self)
+				break
+		for body in interaction_range.get_overlapping_bodies():
+			if body.is_in_group("interactable"):
+				print("interacting with " + body.name)
+				body.interact(self)
+				break
 	
 	# Add the gravity.
 	if not is_on_floor():
