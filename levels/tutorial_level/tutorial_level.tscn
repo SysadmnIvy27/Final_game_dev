@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://d0ts0d2i7lpl2"]
 
 [ext_resource type="Texture2D" uid="uid://d2glj8vnryooi" path="res://assets/level/main_ship_tiles/ship_foreground.png" id="1_6q8av"]
+[ext_resource type="PackedScene" uid="uid://br2htl5ajef0b" path="res://entities/items/debug_target/debug_target.tscn" id="3_jvosh"]
 [ext_resource type="PackedScene" uid="uid://nckq0eghpx3r" path="res://entities/items/oliver_item/oliver_item.tscn" id="3_otwf7"]
+[ext_resource type="PackedScene" uid="uid://d0b7kskktr72p" path="res://entities/items/debug_item/debug_item.tscn" id="4_r2trq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvtug"]
 texture = ExtResource("1_6q8av")
@@ -28,3 +30,21 @@ tile_set = SubResource("TileSet_b1ji6")
 
 [node name="OlivarItem" parent="." unique_id=136021154 instance=ExtResource("3_otwf7")]
 position = Vector2(11, -45)
+
+[node name="DebugTarget" parent="." unique_id=1132471478 instance=ExtResource("3_jvosh")]
+position = Vector2(-188, -87)
+
+[node name="DebugTarget2" parent="." unique_id=984029971 instance=ExtResource("3_jvosh")]
+position = Vector2(203, -68)
+
+[node name="DebugItem" parent="." unique_id=1900671782 instance=ExtResource("4_r2trq")]
+position = Vector2(-155, -29)
+
+[node name="DebugItem2" parent="." unique_id=1243843097 instance=ExtResource("4_r2trq")]
+position = Vector2(113, -87)
+
+[node name="DebugItem3" parent="." unique_id=1241238144 instance=ExtResource("4_r2trq")]
+position = Vector2(-103, -110)
+
+[node name="DebugTarget3" parent="." unique_id=1505861102 instance=ExtResource("3_jvosh")]
+position = Vector2(136, -36)
