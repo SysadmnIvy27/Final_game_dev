@@ -43,6 +43,7 @@ func _physics_process(delta: float) -> void:
 func Sentry_mode():
 	velocity = Vector2.ZERO
 	attack()
+	animate()
 	
 
 func AI_mode(delta):

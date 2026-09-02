@@ -28,7 +28,7 @@ zoom = Vector2(2, 2)
 [node name="Hud" parent="CanvasLayer" unique_id=2078612702 instance=ExtResource("1_oul6g")]
 
 [node name="marker_oli" type="Marker2D" parent="." unique_id=207323424]
-position = Vector2(-18, -22)
+position = Vector2(-33, -37)
 
 [node name="interaction_range" type="Area2D" parent="." unique_id=1749427967]
 
