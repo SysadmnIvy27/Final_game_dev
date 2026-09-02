@@ -3,12 +3,16 @@ extends CharacterBody2D
 
 var owner_entity : Node
 var movement_marker : Node
+var move_target : Node
 @onready var attack_range = $attack_area
 @onready var interact_range = $interact_area
 @onready var detection_range = $detection_range
 @onready var timer = $Cooldown
 @onready var tooltip = $tooltip
 @onready var camera = $Camera2D
+@onready var thrust_pivot = $thruster_pivot
+@onready var turret_pivot = $turret_pivot
+@onready var projectile_spawn = $turret_pivot/projectile_spawn
 @export var projectile_scene : PackedScene
 var has_owner = false
 var can_teleport = false
@@ -16,9 +20,8 @@ var debug = false
 var SPEED = 100.0
 var team
 var cooldown = 1
-var follow_dist = 75
+var follow_dist = 25
 var teleport_dist = 500
-var move_target : Node
 var modes = ["Sentry","AI","Player Control"]
 var mode = 1
 
@@ -28,19 +31,21 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if has_owner:
 		if modes[mode - 1] == "Sentry":
 			Sentry_mode()
 		elif modes[mode - 1] == "AI":
-			AI_mode()
+			AI_mode(delta)
 		elif modes[mode - 1] == "Player Control":
-			Player_Ctrl()
+			Player_Ctrl(delta)
 		
 func Sentry_mode():
+	velocity = Vector2.ZERO
 	attack()
+	
 
-func AI_mode():
+func AI_mode(delta):
 	# gettitng targets
 	var targets : Array
 	for area in detection_range.get_overlapping_areas():
@@ -88,37 +93,27 @@ func AI_mode():
 	elif move_target != movement_marker:
 		velocity = movement_direction * SPEED
 	else:
-		if velocity.x > 1.4:
-			velocity.x -= 1
-		elif velocity.x < -1.4:
-			velocity.x += 1
-		elif velocity.x < 1.5 and velocity.x > -1.5:
-			velocity.x = 0
-		
-		if velocity.y > 4.8:
-			velocity.y -= 1
-		elif velocity.y < -4.8:
-			velocity.y += 1
-		elif velocity.y < 8.5 and velocity.y > -8.5:
-			velocity.y = 0
-		
+		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+		velocity.y = move_toward(velocity.y, 0, SPEED * delta)
 		if debug:
 			print(str(velocity))
 			
+	animate()
 	move_and_slide()
 	
 	attack()
 	interaction()
 	
-func Player_Ctrl():
+func Player_Ctrl(delta):
 	var direction : Vector2
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
 	if direction:
-		velocity = direction * SPEED
+		velocity = (direction * SPEED)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+		velocity.y = move_toward(velocity.y, 0, SPEED * delta)
+	animate()
 	move_and_slide()
 	interaction()
 	
@@ -141,10 +136,11 @@ func interaction():
 			body.interact(self)
 				
 func shoot(entity):
+	turret_pivot.look_at(entity.global_position)
 	var projectile = projectile_scene.instantiate() #instance projectile
-	projectile.direction = (entity.global_position - global_position).normalized()
+	projectile.direction = (entity.global_position - projectile_spawn.global_position).normalized()
 	projectile.team = team
-	projectile.global_position = global_position
+	projectile.global_position = projectile_spawn.global_position
 	get_tree().current_scene.add_child(projectile)
 	
 
@@ -158,3 +154,11 @@ func interact(entity):
 		print(movement_marker.name)
 		has_owner = true
 		tooltip.visible = false
+		
+func animate():
+	if velocity.x > 0:
+		thrust_pivot.rotation_degrees = 60
+	elif velocity.x < 0:
+		thrust_pivot.rotation_degrees = -40
+	elif velocity.x == 0:
+		thrust_pivot.rotation_degrees = 0

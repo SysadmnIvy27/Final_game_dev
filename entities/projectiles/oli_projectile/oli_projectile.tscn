@@ -1,19 +1,35 @@
 [gd_scene format=3 uid="uid://c1mqgtlmld1l0"]
 
 [ext_resource type="Script" uid="uid://vnnsqialqyym" path="res://entities/projectiles/oli_projectile/oli_projectile.gd" id="1_7i8uv"]
-[ext_resource type="Texture2D" uid="uid://d16cp8ptgno7m" path="res://assets/entities/projectiles/oli_projectile.png" id="1_h7gol"]
+[ext_resource type="Texture2D" uid="uid://ddlosnsceg7pb" path="res://assets/entities/projectiles/olivar/projectiles.png" id="2_7i8uv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b1ji6"]
-radius = 6.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3bbd"]
+atlas = ExtResource("2_7i8uv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1ji6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3bbd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcl3r"]
+size = Vector2(6, 3)
 
 [node name="OliProjectile" type="Area2D" unique_id=961055533]
 script = ExtResource("1_7i8uv")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=425472301]
-texture = ExtResource("1_h7gol")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1936211099]
+sprite_frames = SubResource("SpriteFrames_b1ji6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=606756318]
-shape = SubResource("CircleShape2D_b1ji6")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_mcl3r")
 
 [node name="Timer" type="Timer" parent="." unique_id=927210898 groups=["damagable"]]
 one_shot = true

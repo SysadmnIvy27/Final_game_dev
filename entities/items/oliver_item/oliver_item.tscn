@@ -2,12 +2,27 @@
 
 [ext_resource type="Script" uid="uid://dyhkonspjck05" path="res://entities/items/oliver_item/oliver_item.gd" id="1_3g5mp"]
 [ext_resource type="PackedScene" uid="uid://c1mqgtlmld1l0" path="res://entities/projectiles/oli_projectile/oli_projectile.tscn" id="2_oriv4"]
-[ext_resource type="Texture2D" uid="uid://dsjsqpn7wijmk" path="res://assets/entities/items/oliver/oliver.png" id="3_plduh"]
+[ext_resource type="Texture2D" uid="uid://cqxg7gymnru14" path="res://assets/entities/items/oliver/olivar_body.png" id="3_plduh"]
+[ext_resource type="Texture2D" uid="uid://cm6c4w2r5lxdu" path="res://assets/entities/items/oliver/olivar_thrust.png" id="4_kqaq0"]
+[ext_resource type="Texture2D" uid="uid://duhnfcwwheqqs" path="res://assets/entities/items/oliver/olivar_turret.png" id="5_kqaq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cw7c"]
+size = Vector2(49, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i8nuk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj01u"]
 atlas = ExtResource("3_plduh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1ji6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj01u")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1ji6"]
 radius = 101.0198
@@ -18,28 +33,94 @@ radius = 22.090721
 [sub_resource type="CircleShape2D" id="CircleShape2D_1i7ex"]
 radius = 261.00192
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7mwl"]
+atlas = ExtResource("4_kqaq0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6382"]
+atlas = ExtResource("4_kqaq0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtfmu"]
+atlas = ExtResource("4_kqaq0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5wal"]
+atlas = ExtResource("4_kqaq0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2dpn"]
+atlas = ExtResource("4_kqaq0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcl3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7mwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6382")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtfmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5wal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2dpn")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dpm6"]
+atlas = ExtResource("5_kqaq0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1i7ex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dpm6")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="OlivarItem" type="CharacterBody2D" unique_id=136021154 groups=["interactable"]]
 script = ExtResource("1_3g5mp")
 projectile_scene = ExtResource("2_oriv4")
 
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=1121818888]
+visible = false
+position = Vector2(-7.5, -4)
 shape = SubResource("RectangleShape2D_4cw7c")
 one_way_collision = true
 
-[node name="sprite" type="Sprite2D" parent="." unique_id=904512027]
-texture = SubResource("AtlasTexture_i8nuk")
+[node name="body" type="AnimatedSprite2D" parent="." unique_id=1555537467]
+position = Vector2(0, 9)
+sprite_frames = SubResource("SpriteFrames_b1ji6")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="attack_area" type="Area2D" parent="." unique_id=173856887]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area" unique_id=2065588032]
 shape = SubResource("CircleShape2D_b1ji6")
 
 [node name="interact_area" type="Area2D" parent="." unique_id=285405550]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact_area" unique_id=811605516]
 shape = SubResource("CircleShape2D_mcl3r")
 
 [node name="detection_range" type="Area2D" parent="." unique_id=1433529188]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range" unique_id=1344928835]
 shape = SubResource("CircleShape2D_1i7ex")
@@ -55,3 +136,26 @@ offset_bottom = -18.0
 text = "Press 'E' to interact"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=980045190]
+
+[node name="thruster_pivot" type="Node2D" parent="." unique_id=1610178021]
+position = Vector2(-17, -2)
+
+[node name="thruster_anim" type="AnimatedSprite2D" parent="thruster_pivot" unique_id=2027663357]
+position = Vector2(17.189388, 10.701633)
+sprite_frames = SubResource("SpriteFrames_mcl3r")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.42617607
+
+[node name="turret_pivot" type="Node2D" parent="." unique_id=1018928028]
+position = Vector2(4, 4)
+
+[node name="turret_anim" type="AnimatedSprite2D" parent="turret_pivot" unique_id=166622698]
+z_index = -1
+position = Vector2(-4, 5)
+sprite_frames = SubResource("SpriteFrames_1i7ex")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="projectile_spawn" type="Marker2D" parent="turret_pivot" unique_id=1740962024]
+position = Vector2(4, 1)
