@@ -1,4 +1,3 @@
-#extends Area2D
 extends CharacterBody2D
 
 var owner_entity : Node
