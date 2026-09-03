@@ -6,13 +6,14 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var team = "friendly"
 var lock_movement = false
+var lock_interaction = false
 var drone : Node
 
 func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and not lock_interaction:
 		for area in interaction_range.get_overlapping_areas():
 			if area.is_in_group("interactable"):
 				print("interacting with " + area.name)
@@ -34,10 +35,12 @@ func _physics_process(delta: float) -> void:
 			camera.enabled = false
 			drone.camera.enabled = true
 			lock_movement = true
+			lock_interaction = true
 		else:
 			camera.enabled = true
 			drone.camera.enabled = false
 			lock_movement = false
+			lock_interaction = false
 	
 	# Add the gravity.
 	if not is_on_floor():

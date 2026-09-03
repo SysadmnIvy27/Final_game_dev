@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://d2xo8x3efq27m"]
+
+[ext_resource type="Script" uid="uid://byokc8rgu4850" path="res://entities/static/photon_sensor/photon_sensor.gd" id="1_7penx"]
+[ext_resource type="Texture2D" uid="uid://cpf0e6v8wwkw3" path="res://assets/entities/photon_sensor/photon_sensor.png" id="2_1jti3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3v5n"]
+atlas = ExtResource("2_1jti3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yri8w"]
+atlas = ExtResource("2_1jti3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1ji6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3v5n")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yri8w")
+}],
+"loop": 1,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mcl3r"]
+radius = 8.0
+
+[node name="PhotonSensor" type="Area2D" unique_id=361766201]
+script = ExtResource("1_7penx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2054308843]
+sprite_frames = SubResource("SpriteFrames_b1ji6")
+animation = &"inactive"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2010957391]
+shape = SubResource("CircleShape2D_mcl3r")

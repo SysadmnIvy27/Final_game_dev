@@ -19,11 +19,12 @@ var can_teleport = false
 var debug = false
 var SPEED = 100.0
 var team
-var cooldown = 1
+var cooldown = 0.1
 var follow_dist = 25
 var teleport_dist = 500
 var modes = ["Sentry","AI","Player Control"]
 var mode = 1
+var turret_speed = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -107,6 +108,7 @@ func AI_mode(delta):
 	
 func Player_Ctrl(delta):
 	var direction : Vector2
+	var mouse = get_global_mouse_position()
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
 	if direction:
@@ -114,6 +116,23 @@ func Player_Ctrl(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
 		velocity.y = move_toward(velocity.y, 0, SPEED * delta)
+		
+	if Input.is_action_pressed("rotate_left") and rotation_degrees >= -20:
+		rotation -= deg_to_rad(1.0)
+	if Input.is_action_pressed("rotate_right") and rotation_degrees <= 20:
+		rotation += deg_to_rad(1.0)
+	
+	var aim = (mouse - turret_pivot.global_position).normalized()
+	var angle_diff = rad_to_deg(turret_pivot.transform.x.angle_to(aim))
+	if (turret_pivot.rotation_degrees + angle_diff) > -6 + rotation_degrees and (turret_pivot.rotation_degrees + angle_diff) < 166 + rotation_degrees:
+		turret_pivot.look_at(mouse)
+		if Input.is_action_pressed("fire1") and timer.is_stopped():
+			timer.start(cooldown)
+			shoot(mouse)
+	if debug:
+		print("Angle Difference: " + str(angle_diff))
+		print("Current Angle: " + str(turret_pivot.rotation_degrees))
+	
 	animate()
 	move_and_slide()
 	interaction()
@@ -123,7 +142,7 @@ func attack():
 	if timer.is_stopped() and has_owner:
 		for area in attack_range.get_overlapping_areas():
 			if area.is_in_group("targetable") and (area.team != "neutral" and area.team != team):
-				shoot(area)
+				shoot(area.global_position)
 				timer.start(cooldown)
 				break
 
@@ -137,11 +156,13 @@ func interaction():
 			body.interact(self)
 				
 func shoot(entity):
-	turret_pivot.look_at(entity.global_position)
+	turret_pivot.look_at(entity)
 	var projectile = projectile_scene.instantiate() #instance projectile
-	projectile.direction = (entity.global_position - projectile_spawn.global_position).normalized()
+	var direction = (entity - projectile_spawn.global_position).normalized()
+	projectile.direction = direction
 	projectile.team = team
 	projectile.global_position = projectile_spawn.global_position
+	projectile.rotation = direction.angle()
 	get_tree().current_scene.add_child(projectile)
 	
 
@@ -158,8 +179,8 @@ func interact(entity):
 		
 func animate():
 	if velocity.x > 0:
-		thrust_pivot.rotation_degrees = 60
+		thrust_pivot.rotation_degrees = 60 - rotation_degrees
 	elif velocity.x < 0:
-		thrust_pivot.rotation_degrees = -40
+		thrust_pivot.rotation_degrees = -40 - rotation_degrees
 	elif velocity.x == 0:
-		thrust_pivot.rotation_degrees = 0
+		thrust_pivot.rotation_degrees = 0 - rotation_degrees

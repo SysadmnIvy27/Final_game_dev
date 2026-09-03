@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dyhkonspjck05" path="res://entities/items/oliver_item/oliver_item.gd" id="1_3g5mp"]
 [ext_resource type="PackedScene" uid="uid://c1mqgtlmld1l0" path="res://entities/projectiles/oli_projectile/oli_projectile.tscn" id="2_oriv4"]
-[ext_resource type="Texture2D" uid="uid://bd10ki85s718i" path="res://assets/entities/items/oliver/olivar_body.png" id="3_plduh"]
-[ext_resource type="Texture2D" uid="uid://ic1jvnwtsf2" path="res://assets/entities/items/oliver/olivar_thrust.png" id="4_kqaq0"]
-[ext_resource type="Texture2D" uid="uid://cy1hgugot6d48" path="res://assets/entities/items/oliver/olivar_turret.png" id="5_kqaq0"]
+[ext_resource type="Texture2D" uid="uid://cqxg7gymnru14" path="res://assets/entities/items/oliver/olivar_body.png" id="3_plduh"]
+[ext_resource type="Texture2D" uid="uid://cm6c4w2r5lxdu" path="res://assets/entities/items/oliver/olivar_thrust.png" id="4_kqaq0"]
+[ext_resource type="Texture2D" uid="uid://duhnfcwwheqqs" path="res://assets/entities/items/oliver/olivar_turret.png" id="5_kqaq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cw7c"]
 size = Vector2(49, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oj01u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqaq0"]
 atlas = ExtResource("3_plduh")
 region = Rect2(0, 0, 64, 64)
 
@@ -17,7 +17,7 @@ region = Rect2(0, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oj01u")
+"texture": SubResource("AtlasTexture_kqaq0")
 }],
 "loop": 1,
 "name": &"idle",
@@ -45,13 +45,13 @@ region = Rect2(64, 0, 64, 64)
 atlas = ExtResource("4_kqaq0")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t5wal"]
-atlas = ExtResource("4_kqaq0")
-region = Rect2(192, 0, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2dpn"]
 atlas = ExtResource("4_kqaq0")
 region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5wal"]
+atlas = ExtResource("4_kqaq0")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mcl3r"]
 animations = [{
@@ -66,17 +66,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_qtfmu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t5wal")
+"texture": SubResource("AtlasTexture_a2dpn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a2dpn")
+"texture": SubResource("AtlasTexture_t5wal")
 }],
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1dpm6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj01u"]
 atlas = ExtResource("5_kqaq0")
 region = Rect2(0, 0, 64, 64)
 
@@ -84,7 +84,7 @@ region = Rect2(0, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1dpm6")
+"texture": SubResource("AtlasTexture_oj01u")
 }],
 "loop": 1,
 "name": &"idle",
@@ -92,6 +92,7 @@ animations = [{
 }]
 
 [node name="OlivarItem" type="CharacterBody2D" unique_id=136021154 groups=["interactable"]]
+rotation = 0.08726646
 script = ExtResource("1_3g5mp")
 projectile_scene = ExtResource("2_oriv4")
 
@@ -133,9 +134,11 @@ offset_left = -73.0
 offset_top = -41.0
 offset_right = 75.0
 offset_bottom = -18.0
+rotation = -0.08649694
 text = "Press 'E' to interact"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=980045190]
+zoom = Vector2(3, 3)
 
 [node name="thruster_pivot" type="Node2D" parent="." unique_id=1610178021]
 position = Vector2(-17, -2)
@@ -145,7 +148,8 @@ position = Vector2(17.189388, 10.701633)
 sprite_frames = SubResource("SpriteFrames_mcl3r")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.42617607
+frame = 4
+frame_progress = 0.53537154
 
 [node name="turret_pivot" type="Node2D" parent="." unique_id=1018928028]
 position = Vector2(4, 4)
