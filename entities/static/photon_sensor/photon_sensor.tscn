@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2xo8x3efq27m"]
 
 [ext_resource type="Script" uid="uid://byokc8rgu4850" path="res://entities/static/photon_sensor/photon_sensor.gd" id="1_7penx"]
-[ext_resource type="Texture2D" uid="uid://cpf0e6v8wwkw3" path="res://assets/entities/photon_sensor/photon_sensor.png" id="2_1jti3"]
+[ext_resource type="Texture2D" uid="uid://bql6a6le4xyed" path="res://assets/entities/photon_sensor/photon_sensor.png" id="2_1jti3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3v5n"]
 atlas = ExtResource("2_1jti3")
@@ -33,7 +33,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mcl3r"]
 radius = 8.0
 
-[node name="PhotonSensor" type="Area2D" unique_id=361766201]
+[node name="PhotonSensor" type="Area2D" unique_id=361766201 groups=["Door"]]
 script = ExtResource("1_7penx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2054308843]

@@ -54,8 +54,8 @@ position = Vector2(-103, -110)
 [node name="DebugTarget3" parent="." unique_id=1505861102 instance=ExtResource("3_jvosh")]
 position = Vector2(136, -36)
 
-[node name="PhotonSensor" parent="." unique_id=361766201 groups=["damagable"] instance=ExtResource("5_jvosh")]
-position = Vector2(463, -432)
-
-[node name="Door" parent="." unique_id=1356464142 instance=ExtResource("6_r2trq")]
+[node name="Door1" parent="." unique_id=1356464142 instance=ExtResource("6_r2trq")]
 position = Vector2(239, -80)
+
+[node name="Door1_Photosensor" parent="Door1" unique_id=361766201 groups=["damagable"] instance=ExtResource("5_jvosh")]
+position = Vector2(224, -352)

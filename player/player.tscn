@@ -15,6 +15,7 @@ radius = 85.052925
 script = ExtResource("1_g1dw6")
 
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=71871795 groups=["reset_on_fall"]]
+visible = false
 shape = SubResource("CapsuleShape2D_b1ji6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1216738642]
@@ -31,6 +32,7 @@ zoom = Vector2(2, 2)
 position = Vector2(-53, -76)
 
 [node name="interaction_range" type="Area2D" parent="." unique_id=1749427967]
+visible = false
 
 [node name="interaction_range_area" type="CollisionShape2D" parent="interaction_range" unique_id=1712449389]
 shape = SubResource("CircleShape2D_b1ji6")
