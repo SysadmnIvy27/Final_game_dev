@@ -19,7 +19,7 @@ var debug = false
 var SPEED = 100.0
 var team
 var cooldown = 0.1
-var follow_dist = 25
+var follow_dist = 30
 var teleport_dist = 500
 var modes = ["Sentry","AI","Player Control"]
 var mode = 1
