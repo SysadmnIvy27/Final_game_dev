@@ -5,8 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ji6"]
 size = Vector2(33, 159.25)
 
-[node name="Door" type="StaticBody2D" unique_id=928446017]
+[node name="Door" type="StaticBody2D" unique_id=928446017 groups=["collidable"]]
 script = ExtResource("1_756q7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595437325]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595437325 groups=["collidable"]]
 shape = SubResource("RectangleShape2D_b1ji6")

@@ -1,6 +1,6 @@
 extends Area2D
 
-var team = "neutral"
+@export var team = "neutral"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

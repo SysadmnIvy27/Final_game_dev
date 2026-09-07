@@ -1,9 +1,11 @@
 extends Area2D
 
 @onready var anim = $AnimatedSprite2D
+@export var toggleable = true # If true, allowes sensor to turn on and off
+var toggled = false
 var bound_door
 var active = false
-var door
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -12,11 +14,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if active:
 		anim.animation = &"active"
-		bound_door.open = true
 	else:
 		anim.animation = &"inactive"
-		bound_door.open = false
 	
 func on_hit():
-	active = not active
-		
+	if toggleable:
+		active = not active
+	elif not toggleable and not toggled:
+		active = not active
+		toggled = true

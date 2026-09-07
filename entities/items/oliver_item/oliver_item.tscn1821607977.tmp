@@ -24,14 +24,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1ji6"]
+radius = 101.0198
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_mcl3r"]
 radius = 22.090721
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b1ji6"]
-radius = 148.56985
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_1i7ex"]
-radius = 300.0
+radius = 261.00192
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7mwl"]
 atlas = ExtResource("4_kqaq0")
@@ -108,18 +108,17 @@ sprite_frames = SubResource("SpriteFrames_b1ji6")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="interact_area" type="Area2D" parent="." unique_id=285405550]
-visible = false
-scale = Vector2(2.46275, 1.2749645)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_area" unique_id=811605516]
-shape = SubResource("CircleShape2D_mcl3r")
-
 [node name="attack_area" type="Area2D" parent="." unique_id=173856887]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area" unique_id=2065588032]
 shape = SubResource("CircleShape2D_b1ji6")
+
+[node name="interact_area" type="Area2D" parent="." unique_id=285405550]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_area" unique_id=811605516]
+shape = SubResource("CircleShape2D_mcl3r")
 
 [node name="detection_range" type="Area2D" parent="." unique_id=1433529188]
 visible = false
@@ -166,5 +165,4 @@ position = Vector2(4, 1)
 
 [node name="RayCast2D" type="RayCast2D" parent="turret_pivot" unique_id=324766201]
 position = Vector2(4.7683716e-07, 0)
-target_position = Vector2(38.537426, 0.30901694)
-collide_with_areas = true
+target_position = Vector2(6.484882, 1.1056111)

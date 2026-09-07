@@ -4,6 +4,7 @@ var owner_entity : Node
 var movement_marker : Node
 var move_target : Node
 @onready var attack_range = $attack_area
+@onready var attack_collision = $attack_area/CollisionShape2D
 @onready var interact_range = $interact_area
 @onready var detection_range = $detection_range
 @onready var timer = $Cooldown
@@ -12,11 +13,14 @@ var move_target : Node
 @onready var thrust_pivot = $thruster_pivot
 @onready var turret_pivot = $turret_pivot
 @onready var projectile_spawn = $turret_pivot/projectile_spawn
+@onready var shoot_ray = $turret_pivot/RayCast2D
 @export var projectile_scene : PackedScene
 var has_owner = false
 var can_teleport = false
 var debug = false
 var SPEED = 100.0
+var sprint_speed = 200.0
+var default_speed = 100.0
 var team
 var cooldown = 0.1
 var follow_dist = 30
@@ -27,7 +31,9 @@ var turret_speed = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var turret_radius = attack_collision.get_shape().get_radius() 
+	shoot_ray.target_position = shoot_ray.target_position.normalized()
+	shoot_ray.target_position = (shoot_ray.target_position) * turret_radius
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -110,6 +116,11 @@ func Player_Ctrl(delta):
 	var mouse = get_global_mouse_position()
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
+	if Input.is_action_pressed("sprint"):
+		SPEED = sprint_speed
+	else:
+		SPEED = default_speed
+	
 	if direction:
 		velocity = (direction * SPEED)
 	else:
@@ -141,9 +152,17 @@ func attack():
 	if timer.is_stopped() and has_owner:
 		for area in attack_range.get_overlapping_areas():
 			if area.is_in_group("targetable") and (area.team != "neutral" and area.team != team):
-				shoot(area.global_position)
-				timer.start(cooldown)
-				break
+				var aim = (area.global_position - turret_pivot.global_position).normalized()
+				var angle_diff = rad_to_deg(turret_pivot.transform.x.angle_to(aim))
+				if (turret_pivot.rotation_degrees + angle_diff) > -6 + rotation_degrees and (turret_pivot.rotation_degrees + angle_diff) < 166 + rotation_degrees:
+					turret_pivot.look_at(area.global_position)
+					shoot_ray.force_raycast_update()
+					if debug:
+						print("Colliding with:" + str(shoot_ray.get_collider()))
+					if shoot_ray.get_collider() == area:
+						shoot(area.global_position)
+						timer.start(cooldown)
+						break
 
 func interaction():
 	# interact logic
@@ -161,6 +180,7 @@ func shoot(entity):
 	projectile.direction = direction
 	projectile.team = team
 	projectile.global_position = projectile_spawn.global_position
+	projectile.owner_entity = self
 	projectile.rotation = direction.angle()
 	get_tree().current_scene.add_child(projectile)
 	

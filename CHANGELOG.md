@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.0
+- O.L.I.V.A.R. rework
+- working interior doors (spriteless)
+- bug fixes (mainly projectile system)
+
 ## v0.1.0
 - oliver update 3
 - adds interaction, attacking, and detection to oliver
