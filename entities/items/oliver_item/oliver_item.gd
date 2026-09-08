@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 		elif modes[mode - 1] == "Player Control":
 			Player_Ctrl(delta)
 			
-		if global_position.distance_to(owner_entity.global_position) > signal_range:
+		if global_position.distance_to(owner_entity.global_position) > signal_range and mode == 3:
 			mode = 1
 			can_connect = false
 			owner_entity.hud.push_message("Drone connection offline.")
@@ -83,7 +83,7 @@ func AI_mode(delta):
 	var closest_target : Node
 	var target_dist : float
 	closest_target = null
-	target_dist = 1000
+	target_dist = INF
 	for target in targets:
 		if target.is_in_group("interactable"):
 			if global_position.distance_to(target.global_position) < target_dist:

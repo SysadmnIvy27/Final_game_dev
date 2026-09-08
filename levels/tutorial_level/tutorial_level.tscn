@@ -102,7 +102,6 @@ toggleable = false
 position = Vector2(-126, -97)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=688461625]
-visible = false
 position = Vector2(31.000004, -15.200012)
 rotation = 1.5707964
 scale = Vector2(0.69062495, 1)
