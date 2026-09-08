@@ -14,7 +14,13 @@ var move_target : Node
 @onready var turret_pivot = $turret_pivot
 @onready var projectile_spawn = $turret_pivot/projectile_spawn
 @onready var shoot_ray = $turret_pivot/RayCast2D
+# lights
+@onready var body_light = $PointLight2D
+@onready var turret_light = $turret_pivot/PointLight2D
+@onready var thruster_light = $thruster_pivot/PointLight2D
+# exported vars
 @export var projectile_scene : PackedScene
+# standard vars
 var has_owner = false
 var can_connect = true
 var debug = false
@@ -199,6 +205,9 @@ func interact(entity):
 		print(movement_marker.name)
 		has_owner = true
 		tooltip.visible = false
+		body_light.visible = true
+		turret_light.visible = true
+		thruster_light.visible = true
 		
 func animate():
 	if velocity.x > 0:

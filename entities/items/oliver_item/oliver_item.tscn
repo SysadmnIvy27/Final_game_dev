@@ -161,6 +161,7 @@ autoplay = "idle"
 frame_progress = 0.11839832
 
 [node name="PointLight2D" type="PointLight2D" parent="thruster_pivot" unique_id=24873149]
+visible = false
 position = Vector2(-0.3588974, 21.587463)
 rotation = 1.5707964
 scale = Vector2(0.5783803, 0.59869987)
@@ -187,6 +188,7 @@ target_position = Vector2(38.537426, 0.30901694)
 collide_with_areas = true
 
 [node name="PointLight2D" type="PointLight2D" parent="turret_pivot" unique_id=751047088]
+visible = false
 position = Vector2(55.55989, -0.17643738)
 scale = Vector2(0.20129183, 0.115641594)
 color = Color(0.63888407, 2.0214916e-06, 4.813075e-07, 1)
@@ -194,6 +196,7 @@ texture = ExtResource("8_7ggjc")
 height = 163.0
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1132004717]
+visible = false
 scale = Vector2(0.347391, 0.35111338)
 energy = 0.5
 texture = ExtResource("7_3a2o3")
