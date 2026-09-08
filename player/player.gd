@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var interaction_range = $interaction_range
 @onready var camera = $Camera2D
+@onready var hud = $CanvasLayer/Hud
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var team = "friendly"
@@ -25,12 +26,12 @@ func _physics_process(delta: float) -> void:
 				body.interact(self)
 				break
 	# swapping drone logic
-	if Input.is_action_just_pressed("swap_drone_action") and drone != null:
+	if Input.is_action_just_pressed("swap_drone_action") and drone != null and drone.can_connect:
 		if drone.mode < len(drone.modes):
 			drone.mode += 1
 		else:
 			drone.mode = 1
-			
+	if drone != null:
 		if drone.mode == 3:
 			camera.enabled = false
 			drone.camera.enabled = true

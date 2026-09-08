@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://byokc8rgu4850" path="res://entities/static/photon_sensor/photon_sensor.gd" id="1_7penx"]
 [ext_resource type="Texture2D" uid="uid://cpf0e6v8wwkw3" path="res://assets/entities/photon_sensor/photon_sensor.png" id="2_1jti3"]
+[ext_resource type="Texture2D" uid="uid://clpy1wbfmhi0x" path="res://assets/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="3_1jti3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3v5n"]
 atlas = ExtResource("2_1jti3")
@@ -42,3 +43,15 @@ animation = &"inactive"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2010957391 groups=["collidable"]]
 shape = SubResource("CircleShape2D_mcl3r")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2097183398]
+scale = Vector2(0.08360637, 0.08360637)
+color = Color(0.7058824, 0, 0, 1)
+energy = 0.5
+texture = ExtResource("3_1jti3")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=148679022]
+position = Vector2(-10, -11)
+scale = Vector2(0.029894933, 0.029894933)
+color = Color(0.62004083, 0.6200406, 0, 1)
+texture = ExtResource("3_1jti3")

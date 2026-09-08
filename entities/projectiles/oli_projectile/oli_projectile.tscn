@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vnnsqialqyym" path="res://entities/projectiles/oli_projectile/oli_projectile.gd" id="1_7i8uv"]
 [ext_resource type="Texture2D" uid="uid://ddlosnsceg7pb" path="res://assets/entities/projectiles/olivar/projectiles.png" id="2_7i8uv"]
+[ext_resource type="Texture2D" uid="uid://clpy1wbfmhi0x" path="res://assets/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="3_t3bbd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3bbd"]
 atlas = ExtResource("2_7i8uv")
@@ -33,6 +34,11 @@ shape = SubResource("RectangleShape2D_mcl3r")
 
 [node name="Timer" type="Timer" parent="." unique_id=927210898 groups=["damagable"]]
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1201281166]
+position = Vector2(0, -0.44112492)
+scale = Vector2(-0.02259028, -0.011415951)
+texture = ExtResource("3_t3bbd")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

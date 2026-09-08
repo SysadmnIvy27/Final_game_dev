@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bv3hcxywb8qbn" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://c4ba0wtr5726o" path="res://ui/hud/hud.tscn" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://burwd0wp0no88" path="res://assets/player/player_blockout.png" id="2_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://clpy1wbfmhi0x" path="res://assets/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="4_yw30f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1ji6"]
 radius = 26.0
@@ -36,3 +37,8 @@ visible = false
 
 [node name="interaction_range_area" type="CollisionShape2D" parent="interaction_range" unique_id=1712449389]
 shape = SubResource("CircleShape2D_b1ji6")
+
+[node name="Flare" type="PointLight2D" parent="." unique_id=81912229]
+color = Color(1, 0, 0, 1)
+energy = 0.5
+texture = ExtResource("4_yw30f")

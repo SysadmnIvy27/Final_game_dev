@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Final_game_dev"
-run/main_scene="uid://v0l1jmvpadhh"
+run/main_scene="uid://x2pygtytcjk5"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

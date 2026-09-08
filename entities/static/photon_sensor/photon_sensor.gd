@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var anim = $AnimatedSprite2D
+@onready var light = $PointLight2D
 @export var toggleable = true # If true, allowes sensor to turn on and off
 var toggled = false
 var bound_door
@@ -14,8 +15,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if active:
 		anim.animation = &"active"
+		light.color = Color(0.0, 0.706, 0.0, 1.0)
 	else:
 		anim.animation = &"inactive"
+		light.color = Color(0.706, 0.0, 0.0, 1.0)
 	
 func on_hit():
 	if toggleable:

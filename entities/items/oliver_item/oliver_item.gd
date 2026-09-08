@@ -16,7 +16,7 @@ var move_target : Node
 @onready var shoot_ray = $turret_pivot/RayCast2D
 @export var projectile_scene : PackedScene
 var has_owner = false
-var can_teleport = false
+var can_connect = true
 var debug = false
 var SPEED = 100.0
 var sprint_speed = 200.0
@@ -24,7 +24,7 @@ var default_speed = 100.0
 var team
 var cooldown = 0.1
 var follow_dist = 30
-var teleport_dist = 500
+var signal_range = 500
 var modes = ["Sentry","AI","Player Control"]
 var mode = 1
 var turret_speed = 20
@@ -45,6 +45,14 @@ func _physics_process(delta: float) -> void:
 			AI_mode(delta)
 		elif modes[mode - 1] == "Player Control":
 			Player_Ctrl(delta)
+			
+		if global_position.distance_to(owner_entity.global_position) > signal_range:
+			mode = 1
+			can_connect = false
+			owner_entity.hud.push_message("Drone connection offline.")
+		else:
+			can_connect = true
+			owner_entity.hud.push_message("Drone connection online.")
 		
 func Sentry_mode():
 	velocity = Vector2.ZERO
@@ -76,7 +84,6 @@ func AI_mode(delta):
 				closest_target = target
 				target_dist = global_position.distance_to(target.global_position)
 	move_target = closest_target
-	can_teleport = false
 	if closest_target != null and debug:
 		print("The closest target is: " + closest_target.name + " " + str(target_dist))
 	
@@ -87,16 +94,13 @@ func AI_mode(delta):
 	
 	if move_target == null:
 		move_target = movement_marker
-		can_teleport = true
 	
 	var movement_direction = (move_target.global_position - global_position).normalized()
 	
 	var dist = global_position.distance_to(move_target.global_position)
 	
-	if dist > follow_dist and dist < teleport_dist and move_target == movement_marker: # follow logic
+	if dist > follow_dist and move_target == movement_marker: # follow logic
 		velocity = movement_direction * SPEED
-	elif dist > teleport_dist and can_teleport: # teleportation logic
-		global_position = movement_marker.global_position
 	elif move_target != movement_marker:
 		velocity = movement_direction * SPEED
 	else:
