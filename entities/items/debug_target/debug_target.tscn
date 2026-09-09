@@ -8,6 +8,7 @@ radius = 8.062258
 
 [node name="DebugTarget" type="Area2D" unique_id=1132471478 groups=["collidable", "damagable", "targetable"]]
 script = ExtResource("1_u4c0a")
+texture = ExtResource("2_e53t3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1333445570]
 texture = ExtResource("2_e53t3")

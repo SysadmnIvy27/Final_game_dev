@@ -1,5 +1,7 @@
-extends Area2D
+extends RigidBody2D
 
+@export var item_name = "debug_item"
+@export var texture : Texture2D
 @export var team = "neutral"
 
 # Called when the node enters the scene tree for the first time.

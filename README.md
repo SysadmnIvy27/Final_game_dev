@@ -47,12 +47,6 @@ The first thing you notice is the lack of light, and the stillness of the room i
 The warning lights overhead and the lack of alarms suggest something terrible has happened here while you were in stasis.
 Then something moves in the darkness...
 
-
-
-
-
-
-
 ## Lore (Spoiler Warning):
 You are a miner on the Olirax extraction and research ship BREAKTHROUGH, a mining vessel operating in the void of space far from civilization. 
 Life is though: limited resources forcing any crew not on duty into cryogenic stasis to ensure the ships crew survives. 

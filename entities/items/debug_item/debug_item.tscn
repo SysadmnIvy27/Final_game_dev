@@ -6,8 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ji6"]
 size = Vector2(16, 13)
 
-[node name="DebugItem" type="Area2D" unique_id=1900671782 groups=["interactable", "targetable"]]
+[node name="DebugItem" type="RigidBody2D" unique_id=1434011558 groups=["interactable", "targetable"]]
+freeze_mode = 1
 script = ExtResource("1_i1lbj")
+texture = ExtResource("1_8j6jw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2004203872 groups=["interactable", "targetable"]]
 position = Vector2(0, 1.5)

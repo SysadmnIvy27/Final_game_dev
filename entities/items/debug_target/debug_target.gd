@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var item_name = "debug_target"
+@export var texture : Texture2D
 @export var team = "enemy"
 
 # Called when the node enters the scene tree for the first time.
