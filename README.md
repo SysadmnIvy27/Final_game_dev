@@ -42,6 +42,12 @@ You must fight your way through automated defense systems and infected to reach 
 
 ## Levels / Missions (to add)
 ### Tutorial:
+#### Part 1
+- [ ] Start your mining shift
+- [ ] Release mining drones
+- [ ] Process ore
+- [ ] Put gear away
+#### Part 2
 - [ ] Restore power to the cryo bay
 - [ ] Scavenge for a space suit and multitool
 - [ ] Repair damaged O.L.I.V.A.R. unit
@@ -58,7 +64,6 @@ You must fight your way through automated defense systems and infected to reach 
 - [ ] Save / Load
 - [ ] Storage
 - [ ] Mining?
-- [ ] 
 
 ## Ideas
 - debug items (target, various controllable markers)
