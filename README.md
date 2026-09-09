@@ -1,41 +1,5 @@
-## A game made for my final project at Ivy Tech.
-
-## Roadmap: 
-- [x] Drone Ai
-- [ ] Inventory system
-- [ ] Enemies
-- [ ] Goal? (sort of done)
-- [ ] Ui?
-- [ ] Lore? (sort of)
-
-## Project Requirements
-- [x] Main menu
-- [x] New Game
-- [x] Quit
-- [ ] Player movement
-- [ ] scripted gameplay loop
-- [ ] 2 external visual assets
-- [ ] 2 CC audio assets
-- [ ] Gameplay UI
-- [ ] 30+ seconds playable (bug free)
-- [ ] Design document updated
-
-## Levels / Missions
-### Tutorial:
-- [ ] Restore power to the cryo bay
-- [ ] Scavenge for a space suit and multitool
-- [ ] Repair damaged O.L.I.V.A.R. unit
-- [ ] Look for a way out of the cryo sector
-### Stage 1:
-- [ ] Get to bridge and find out what happened
-
-## Ideas
-- debug items (target, various controllable markers)
-- upgrades / tech tree / skill tree
-
-
-## Game
 # Beyond the Stars: Rebelion
+## A game made for my final project at Ivy Tech.
 - Battle through the tight corridors of your frigate as its AI and an offending alien species try to hunt you down.
 - O.L.I.V.A.R. (Olirax Lite Inteligent Vehciular Assistive Robot) Drone
 - Puzzles to enter rooms unoticed
@@ -56,3 +20,46 @@ This infection spreads fast, and in a desperate attmept to cull it, the ships AI
 The AI throws all avaliable resources and heavy mining drones at the invader, and seals off the infected end of the ship: its too late.
 Some of the crew in the cryo bays are infected and others are dead: you stand alone as one of the only survivors.
 You must fight your way through automated defense systems and infected to reach the mainframe and stop the infection: prementantly.
+
+## Roadmap: 
+- [x] Drone Ai
+- [ ] Inventory system
+- [ ] Enemies
+- [ ] Goal? (sort of done)
+- [ ] Ui?
+- [ ] Lore? (sort of)
+### Project Requirements
+- [x] Main menu
+- [x] New Game
+- [x] Quit
+- [ ] Player movement
+- [ ] scripted gameplay loop
+- [ ] 2 external visual assets
+- [ ] 2 CC audio assets
+- [ ] Gameplay UI
+- [ ] 30+ seconds playable (bug free)
+- [ ] Design document updated
+
+## Levels / Missions (to add)
+### Tutorial:
+- [ ] Restore power to the cryo bay
+- [ ] Scavenge for a space suit and multitool
+- [ ] Repair damaged O.L.I.V.A.R. unit
+- [ ] Look for a way out of the cryo sector
+### Stage 1:
+- [ ] Get to bridge and find out what happened
+
+## Systems (to add):
+- [ ] Item database
+- [ ] Inventory system
+- [ ] Requirements system
+- [ ] Lighting
+- [ ] Quest system
+- [ ] Save / Load
+- [ ] Storage
+- [ ] Mining?
+- [ ] 
+
+## Ideas
+- debug items (target, various controllable markers)
+- upgrades / tech tree / skill tree
