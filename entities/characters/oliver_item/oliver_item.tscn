@@ -2,26 +2,26 @@
 
 [ext_resource type="Script" uid="uid://dyhkonspjck05" path="res://entities/characters/oliver_item/oliver_item.gd" id="1_3g5mp"]
 [ext_resource type="PackedScene" uid="uid://c1mqgtlmld1l0" path="res://entities/projectiles/oli_projectile/oli_projectile.tscn" id="2_oriv4"]
-[ext_resource type="Texture2D" uid="uid://cqxg7gymnru14" path="res://assets/entities/items/oliver/olivar_body.png" id="3_plduh"]
-[ext_resource type="Texture2D" uid="uid://cm6c4w2r5lxdu" path="res://assets/entities/items/oliver/olivar_thrust.png" id="4_kqaq0"]
+[ext_resource type="Texture2D" uid="uid://bd10ki85s718i" path="res://assets/items/oliver/olivar_body.png" id="3_a4shj"]
 [ext_resource type="Texture2D" uid="uid://cc33jxsh0j5mb" path="res://assets/ui/tooltips/tooltips.png" id="4_oj01u"]
-[ext_resource type="Texture2D" uid="uid://duhnfcwwheqqs" path="res://assets/entities/items/oliver/olivar_turret.png" id="5_kqaq0"]
+[ext_resource type="Texture2D" uid="uid://ic1jvnwtsf2" path="res://assets/items/oliver/olivar_thrust.png" id="5_prhmd"]
 [ext_resource type="Texture2D" uid="uid://cxkm7bbwke1ps" path="res://assets/lighting/cone_64x64_4Bl2ghjA_clobie.itch.io.png" id="6_7ggjc"]
 [ext_resource type="Texture2D" uid="uid://clpy1wbfmhi0x" path="res://assets/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="7_3a2o3"]
+[ext_resource type="Texture2D" uid="uid://cy1hgugot6d48" path="res://assets/items/oliver/olivar_turret.png" id="7_ywte1"]
 [ext_resource type="Texture2D" uid="uid://d0qoomshqi1uf" path="res://assets/lighting/cone_512x512_KiJ3ATsN_clobie.itch.io.png" id="8_7ggjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cw7c"]
 size = Vector2(49, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kqaq0"]
-atlas = ExtResource("3_plduh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsf0g"]
+atlas = ExtResource("3_a4shj")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b1ji6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kqaq0")
+"texture": SubResource("AtlasTexture_qsf0g")
 }],
 "loop": 1,
 "name": &"idle",
@@ -40,58 +40,58 @@ radius = 300.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1ji6"]
 atlas = ExtResource("4_oj01u")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7mwl"]
-atlas = ExtResource("4_kqaq0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhji3"]
+atlas = ExtResource("5_prhmd")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6382"]
-atlas = ExtResource("4_kqaq0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq1jq"]
+atlas = ExtResource("5_prhmd")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qtfmu"]
-atlas = ExtResource("4_kqaq0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcg10"]
+atlas = ExtResource("5_prhmd")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a2dpn"]
-atlas = ExtResource("4_kqaq0")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t5wal"]
-atlas = ExtResource("4_kqaq0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui82x"]
+atlas = ExtResource("5_prhmd")
 region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yadk8"]
+atlas = ExtResource("5_prhmd")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mcl3r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j7mwl")
+"texture": SubResource("AtlasTexture_qhji3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j6382")
+"texture": SubResource("AtlasTexture_bq1jq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qtfmu")
+"texture": SubResource("AtlasTexture_qcg10")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a2dpn")
+"texture": SubResource("AtlasTexture_ui82x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t5wal")
+"texture": SubResource("AtlasTexture_yadk8")
 }],
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oj01u"]
-atlas = ExtResource("5_kqaq0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g7ac"]
+atlas = ExtResource("7_ywte1")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1i7ex"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oj01u")
+"texture": SubResource("AtlasTexture_2g7ac")
 }],
 "loop": 1,
 "name": &"idle",
@@ -158,7 +158,7 @@ position = Vector2(17.189388, 10.701633)
 sprite_frames = SubResource("SpriteFrames_mcl3r")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.11839832
+frame_progress = 0.40802243
 
 [node name="PointLight2D" type="PointLight2D" parent="thruster_pivot" unique_id=24873149]
 visible = false

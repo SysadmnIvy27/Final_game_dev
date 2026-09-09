@@ -1,7 +1,9 @@
 extends Area2D
 
+# standard code for all items
 @export var item_name = "debug_target"
 @export var texture : Texture2D
+# faction alignment
 @export var team = "enemy"
 
 # Called when the node enters the scene tree for the first time.

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2xo8x3efq27m" path="res://entities/static/photon_sensor/photon_sensor.tscn" id="5_jvosh"]
 [ext_resource type="PackedScene" uid="uid://b3f4c155vvymv" path="res://entities/static/door/door.tscn" id="6_r2trq"]
 [ext_resource type="Texture2D" uid="uid://b4i6om7oexk7v" path="res://assets/lighting/cone_512x512_ZC1lQS56_clobie.itch.io.png" id="7_l60hg"]
+[ext_resource type="PackedScene" uid="uid://cne4r7sg6dyw6" path="res://entities/static/emergency_light/eme_light.tscn" id="9_26fse"]
 
 [sub_resource type="Gradient" id="Gradient_1i7ex"]
 
@@ -101,9 +102,31 @@ toggleable = false
 position = Vector2(-31, -97)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=688461625]
+visible = false
 position = Vector2(31.000004, -15.200012)
 rotation = 1.5707964
 scale = Vector2(0.69062495, 1)
 energy = 3.0
 shadow_enabled = true
 texture = ExtResource("7_l60hg")
+
+[node name="EmeLight" parent="." unique_id=625407716 instance=ExtResource("9_26fse")]
+position = Vector2(-92, -192)
+
+[node name="EmeLight2" parent="." unique_id=2037347225 instance=ExtResource("9_26fse")]
+position = Vector2(96, -192)
+
+[node name="EmeLight3" parent="." unique_id=1713257247 instance=ExtResource("9_26fse")]
+position = Vector2(371, -192)
+
+[node name="EmeLight4" parent="." unique_id=525001563 instance=ExtResource("9_26fse")]
+position = Vector2(594, -193)
+
+[node name="EmeLight5" parent="." unique_id=1555500801 instance=ExtResource("9_26fse")]
+position = Vector2(820, -192)
+
+[node name="EmeLight6" parent="." unique_id=417722936 instance=ExtResource("9_26fse")]
+position = Vector2(1042, -191)
+
+[node name="EmeLight7" parent="." unique_id=470201727 instance=ExtResource("9_26fse")]
+position = Vector2(1298, -192)

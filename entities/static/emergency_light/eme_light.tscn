@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cne4r7sg6dyw6"]
+
+[ext_resource type="Script" uid="uid://cjip120htpvrh" path="res://entities/static/emergency_light/eme_light.gd" id="1_iuykw"]
+[ext_resource type="Texture2D" uid="uid://by2ooeft6gcyo" path="res://assets/entities/eme_light/emergency_light.png" id="1_l2yb5"]
+[ext_resource type="Texture2D" uid="uid://b4i6om7oexk7v" path="res://assets/lighting/cone_512x512_ZC1lQS56_clobie.itch.io.png" id="2_iuykw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuc36"]
+size = Vector2(9, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mnt1"]
+atlas = ExtResource("1_l2yb5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgbeo"]
+atlas = ExtResource("1_l2yb5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8nuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mnt1")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgbeo")
+}],
+"loop": 1,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[node name="EmeLight" type="Area2D" unique_id=625407716]
+script = ExtResource("1_iuykw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1673369922]
+position = Vector2(-0.5, 8.5)
+shape = SubResource("RectangleShape2D_yuc36")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=573425196]
+position = Vector2(-8, 16)
+sprite_frames = SubResource("SpriteFrames_i8nuk")
+animation = &"active"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=292031842]
+position = Vector2(-0.99999684, 189.60057)
+rotation = 1.5707964
+scale = Vector2(0.7171898, 1)
+color = Color(0.86343604, 5.318448e-06, 7.70092e-07, 1)
+texture = ExtResource("2_iuykw")
+
+[node name="Blink" type="Timer" parent="." unique_id=1761149213]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Blink" to="." method="_on_blink_timeout"]
