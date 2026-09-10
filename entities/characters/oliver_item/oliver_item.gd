@@ -67,6 +67,7 @@ func Sentry_mode():
 	
 
 func AI_mode(delta):
+	SPEED = default_speed
 	# gettitng targets
 	var targets : Array
 	for area in detection_range.get_overlapping_areas():

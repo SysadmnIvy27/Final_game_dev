@@ -44,10 +44,34 @@ You must fight your way through automated defense systems and infected to reach 
 ### Tutorial:
 #### Part 1
 - [ ] Start your mining shift
+  - Find personal locker
+  - Get gear
+  - Get tools
+  - Eat
+  - Go to bridge for mission breif
 - [ ] Release mining drones
+  - Go to hanger 1
+  - Release ENGRAVER drones
+  - Release O.L.I.V.A.R. drones
 - [ ] Process ore
+  - Go to refining sector
+  - Locate main breaker and divert power to refinery
+  - Recall drones and unload ore
+  - Process ore
+  - Store refined materials in hold
+  - Shut down refinery
+- [ ] Maintainence
+  - Repair broken drones (random chance)
+  - Inspect personal gear
+  - Repair multitool (Machine shop)
 - [ ] Put gear away
-#### Part 2
+  - Eat
+  - Go to crew locker room
+  - Take off suit and put it away
+  - Place multitool in equipment room
+- [ ] Get in cryo tube
+  - Enter stasis
+#### Part 2 (Possibly story mode)
 - [ ] Restore power to the cryo bay
 - [ ] Scavenge for a space suit and multitool
 - [ ] Repair damaged O.L.I.V.A.R. unit
@@ -56,7 +80,7 @@ You must fight your way through automated defense systems and infected to reach 
 - [ ] Get to bridge and find out what happened
 
 ## Systems (to add):
-- [ ] Item database
+- [x] Item database
 - [ ] Inventory system
 - [ ] Requirements system
 - [ ] Lighting
@@ -64,6 +88,11 @@ You must fight your way through automated defense systems and infected to reach 
 - [ ] Save / Load
 - [ ] Storage
 - [ ] Mining?
+- [ ] Crafting
+- [ ] Energy
+- [ ] Oxygen
+- [ ] Health
+- [ ] Hunger?
 
 ## Ideas
 - debug items (target, various controllable markers)

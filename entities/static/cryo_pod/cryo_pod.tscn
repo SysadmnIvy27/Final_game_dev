@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bxs0p34aw8gxn"]
+
+[ext_resource type="Texture2D" uid="uid://bud7umkdjxs6d" path="res://assets/entities/cryo_tube/cryo_tube_tank.png" id="1_bftao"]
+[ext_resource type="Script" uid="uid://duxg4v2frx8mb" path="res://entities/static/cryo_pod/cryo_pod.gd" id="1_npxe1"]
+[ext_resource type="PackedScene" uid="uid://dm6q8m7ptf8e3" path="res://player/player.tscn" id="2_jrj3a"]
+[ext_resource type="Texture2D" uid="uid://c5vg8nqoipvl6" path="res://assets/player/player.png" id="2_npxe1"]
+[ext_resource type="Texture2D" uid="uid://qcdtsctgisli" path="res://assets/entities/cryo_tube/cryo_tube_door.png" id="2_yce46"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npxe1"]
+atlas = ExtResource("1_bftao")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcl3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npxe1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrj3a"]
+atlas = ExtResource("2_yce46")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fi4e"]
+atlas = ExtResource("2_yce46")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g4nv"]
+atlas = ExtResource("2_yce46")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvv5f"]
+atlas = ExtResource("2_yce46")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw0to"]
+atlas = ExtResource("2_yce46")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6k5n"]
+atlas = ExtResource("2_yce46")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1i7ex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrj3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fi4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g4nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvv5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw0to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6k5n")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1ji6"]
+radius = 22.0
+height = 96.0
+
+[node name="CryoPod" type="Area2D" unique_id=1865625966 groups=["interactable"]]
+z_index = -3
+script = ExtResource("1_npxe1")
+spawned_entity = ExtResource("2_jrj3a")
+
+[node name="Tank" type="AnimatedSprite2D" parent="." unique_id=815637704]
+sprite_frames = SubResource("SpriteFrames_mcl3r")
+
+[node name="Character" type="Sprite2D" parent="." unique_id=1392939536]
+texture = ExtResource("2_npxe1")
+
+[node name="Door" type="AnimatedSprite2D" parent="." unique_id=325424675]
+sprite_frames = SubResource("SpriteFrames_1i7ex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=617673190]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_b1ji6")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2136017198]

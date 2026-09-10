@@ -9,6 +9,7 @@ var team = "friendly"
 var lock_movement = false
 var lock_interaction = false
 var drone : Node
+var inventory = {}
 
 func _ready() -> void:
 	pass
