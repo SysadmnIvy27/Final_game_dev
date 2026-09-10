@@ -10,7 +10,6 @@ var occupied = true
 var player_initial_spawn = false
 var deployed = false
 var deploying = false
-var stowed = false
 var stowing = false
 var deploy_speed = 50
 
@@ -37,7 +36,7 @@ func _process(delta: float) -> void:
 		deploying = true
 	elif Input.is_action_just_pressed("enter_cryo") and player_initial_spawn and deployed == false and occupied:
 		deploying = true
-	elif Input.is_action_just_pressed("enter_cryo") and player_initial_spawn and deployed == true and occupied:
+	elif Input.is_action_just_pressed("enter_cryo") and player_initial_spawn and deployed == true and occupied and not stowing:
 		contained_entity.visible = true
 		contained_entity.camera.enabled = true
 		contained_entity.lock_movement = false
@@ -53,16 +52,14 @@ func deploy(delta):
 			global_position = End.global_position
 			deployed = true
 			deploying = false
-			stowed = false
 			door_anim.play("default")
 				
 func stow(delta):
-	if not stowed:
+	if deployed:
 		var direction = (Start.global_position - global_position).normalized()
 		global_position += direction * deploy_speed * delta
 		if ((global_position.y + 1) > Start.global_position.y and (global_position.y - 1) < Start.global_position.y):
 			global_position = Start.global_position
-			stowed = true
 			stowing = false
 			deployed = false
 
@@ -77,5 +74,3 @@ func interact(entity):
 		door_anim.play_backwards("default")
 		entity.lock_movement = true
 		entity.lock_interaction = true
-		
-	
