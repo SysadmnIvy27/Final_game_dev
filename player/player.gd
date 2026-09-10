@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 var team = "friendly"
 var lock_movement = false
 var lock_interaction = false
+var lock_drone = false
 var drone : Node
 var inventory = {}
 
@@ -27,7 +28,7 @@ func _physics_process(delta: float) -> void:
 				body.interact(self)
 				break
 	# swapping drone logic
-	if Input.is_action_just_pressed("swap_drone_action") and drone != null and drone.can_connect and not lock_interaction:
+	if Input.is_action_just_pressed("swap_drone_action") and drone != null and drone.can_connect and not lock_drone:
 		if drone.mode < len(drone.modes):
 			drone.mode += 1
 		else:

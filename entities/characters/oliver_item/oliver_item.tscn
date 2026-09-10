@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dyhkonspjck05" path="res://entities/characters/oliver_item/oliver_item.gd" id="1_3g5mp"]
 [ext_resource type="PackedScene" uid="uid://c1mqgtlmld1l0" path="res://entities/projectiles/oli_projectile/oli_projectile.tscn" id="2_oriv4"]
-[ext_resource type="Texture2D" uid="uid://cxkbvoxf141k7" path="res://assets/items/oliver/olivar_body.png" id="3_a4shj"]
+[ext_resource type="Texture2D" uid="uid://bd10ki85s718i" path="res://assets/items/oliver/olivar_body.png" id="3_a4shj"]
 [ext_resource type="Texture2D" uid="uid://cc33jxsh0j5mb" path="res://assets/ui/tooltips/tooltips.png" id="4_oj01u"]
-[ext_resource type="Texture2D" uid="uid://y7cer8r0ns3g" path="res://assets/items/oliver/olivar_thrust.png" id="5_prhmd"]
+[ext_resource type="Texture2D" uid="uid://ic1jvnwtsf2" path="res://assets/items/oliver/olivar_thrust.png" id="5_prhmd"]
 [ext_resource type="Texture2D" uid="uid://cxkm7bbwke1ps" path="res://assets/lighting/cone_64x64_4Bl2ghjA_clobie.itch.io.png" id="6_7ggjc"]
 [ext_resource type="Texture2D" uid="uid://clpy1wbfmhi0x" path="res://assets/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="7_3a2o3"]
-[ext_resource type="Texture2D" uid="uid://dr6dyyhryfmuy" path="res://assets/items/oliver/olivar_turret.png" id="7_ywte1"]
+[ext_resource type="Texture2D" uid="uid://cy1hgugot6d48" path="res://assets/items/oliver/olivar_turret.png" id="7_ywte1"]
 [ext_resource type="Texture2D" uid="uid://d0qoomshqi1uf" path="res://assets/lighting/cone_512x512_KiJ3ATsN_clobie.itch.io.png" id="8_7ggjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cw7c"]

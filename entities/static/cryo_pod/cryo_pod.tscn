@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bxs0p34aw8gxn"]
 
-[ext_resource type="Texture2D" uid="uid://bud7umkdjxs6d" path="res://assets/entities/cryo_tube/cryo_tube_tank.png" id="1_bftao"]
+[ext_resource type="Texture2D" uid="uid://csfeaygnovau5" path="res://assets/entities/cryo_tube/cryo_tube_tank.png" id="1_bftao"]
 [ext_resource type="Script" uid="uid://duxg4v2frx8mb" path="res://entities/static/cryo_pod/cryo_pod.gd" id="1_npxe1"]
 [ext_resource type="PackedScene" uid="uid://dm6q8m7ptf8e3" path="res://player/player.tscn" id="2_jrj3a"]
 [ext_resource type="Texture2D" uid="uid://c5vg8nqoipvl6" path="res://assets/player/player.png" id="2_npxe1"]
-[ext_resource type="Texture2D" uid="uid://qcdtsctgisli" path="res://assets/entities/cryo_tube/cryo_tube_door.png" id="2_yce46"]
+[ext_resource type="Texture2D" uid="uid://ubvfbi77r3cm" path="res://assets/entities/cryo_tube/cryo_tube_door.png" id="2_yce46"]
+[ext_resource type="Texture2D" uid="uid://clpy1wbfmhi0x" path="res://assets/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="6_3fi4e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npxe1"]
 atlas = ExtResource("1_bftao")
@@ -94,3 +95,10 @@ position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_b1ji6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2136017198]
+zoom = Vector2(4, 4)
+
+[node name="Pod_light" type="PointLight2D" parent="." unique_id=140492848]
+position = Vector2(0, 8.499994)
+scale = Vector2(0.17546135, 0.41796872)
+color = Color(0, 1, 1, 1)
+texture = ExtResource("6_3fi4e")

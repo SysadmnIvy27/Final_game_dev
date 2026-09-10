@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 		contained_entity.camera.enabled = true
 		contained_entity.lock_movement = false
 		contained_entity.lock_interaction = false
+		contained_entity.lock_drone = false
 		camera.enabled = false
 		occupied = false
 
@@ -74,3 +75,4 @@ func interact(entity):
 		door_anim.play_backwards("default")
 		entity.lock_movement = true
 		entity.lock_interaction = true
+		entity.lock_drone = true
