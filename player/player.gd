@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 				body.interact(self)
 				break
 	# swapping drone logic
-	if Input.is_action_just_pressed("swap_drone_action") and drone != null and drone.can_connect:
+	if Input.is_action_just_pressed("swap_drone_action") and drone != null and drone.can_connect and not lock_interaction:
 		if drone.mode < len(drone.modes):
 			drone.mode += 1
 		else:

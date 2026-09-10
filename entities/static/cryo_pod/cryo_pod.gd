@@ -40,6 +40,8 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed("enter_cryo") and player_initial_spawn and deployed == true and occupied:
 		contained_entity.visible = true
 		contained_entity.camera.enabled = true
+		contained_entity.lock_movement = false
+		contained_entity.lock_interaction = false
 		camera.enabled = false
 		occupied = false
 
@@ -73,5 +75,7 @@ func interact(entity):
 		stowing = true
 		occupied = true
 		door_anim.play_backwards("default")
+		entity.lock_movement = true
+		entity.lock_interaction = true
 		
 	
