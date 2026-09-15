@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://c4ba0wtr5726o"]
 
 [ext_resource type="Script" uid="uid://dypdkm0sh04fr" path="res://ui/hud/hud.gd" id="1_xmswo"]
+[ext_resource type="Texture2D" uid="uid://dpaolc82uk2c5" path="res://assets/ui/signal/signal.png" id="2_4d6w6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8nuk"]
+atlas = ExtResource("2_4d6w6")
+region = Rect2(0, 0, 32, 32)
 
 [node name="Hud" type="Control" unique_id=2078612702]
 layout_mode = 3
@@ -16,15 +21,41 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
+offset_top = -27.0
+offset_right = 115.0
 grow_vertical = 0
 
+[node name="Room_Timer" type="Timer" parent="." unique_id=833336551]
+one_shot = true
+
 [node name="Notification_msg" type="Label" parent="." unique_id=1255649565]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Quest_Board" type="VBoxContainer" parent="." unique_id=463050684]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -183.0
+offset_bottom = 40.0
 grow_horizontal = 0
+
+[node name="Example_quest" type="HBoxContainer" parent="Quest_Board" unique_id=1482984643]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Quest_Board/Example_quest" unique_id=1778051240]
+layout_mode = 2
+text = "Activate the Drone"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1136148798]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -226.0
+offset_right = -186.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_i8nuk")

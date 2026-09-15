@@ -13,7 +13,9 @@ var drone : Node
 var inventory = {}
 
 func _ready() -> void:
-	pass
+	var level = get_parent()
+	print(level.name)
+	level.player = self
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and not lock_interaction:
@@ -61,4 +63,6 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()

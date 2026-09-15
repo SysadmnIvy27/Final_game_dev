@@ -52,13 +52,14 @@ func _physics_process(delta: float) -> void:
 		elif modes[mode - 1] == "Player Control":
 			Player_Ctrl(delta)
 			
-		if global_position.distance_to(owner_entity.global_position) > signal_range and mode == 3:
+		if global_position.distance_to(owner_entity.global_position) > signal_range:
 			mode = 1
 			can_connect = false
 			owner_entity.hud.push_message("Drone connection offline.")
 		else:
 			can_connect = true
 			owner_entity.hud.push_message("Drone connection online.")
+		owner_entity.hud.connection = can_connect
 		
 func Sentry_mode():
 	velocity = Vector2.ZERO
