@@ -16,7 +16,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if area_timer.is_stopped():
 		area_notifer.visible = false
-		
 	if connection == true:
 		connection_icon.texture.region = Rect2(0,0,32,32)
 	else:
