@@ -18,5 +18,6 @@ func _process(_delta: float) -> void:
 
 func interact(entity):
 	print(self.name + " picked up by " + entity.name)
-	entity.add_item(self)
+	if entity.has_method("add_item"): # for debugging only, eventually will be removed
+		entity.add_item(self)
 	queue_free()
