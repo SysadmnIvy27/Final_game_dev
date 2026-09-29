@@ -2,6 +2,7 @@ extends RigidBody2D
 
 # standard code for all items
 @export var item_name = "debug_item"
+@export var amount = 1
 @export var texture : Texture2D
 # faction alignment
 @export var team = "neutral"
@@ -17,4 +18,5 @@ func _process(_delta: float) -> void:
 
 func interact(entity):
 	print(self.name + " picked up by " + entity.name)
+	entity.add_item(self)
 	queue_free()

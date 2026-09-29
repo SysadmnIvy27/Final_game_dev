@@ -11,11 +11,19 @@ var lock_interaction = false
 var lock_drone = false
 var drone : Node
 var inventory = {}
+var slots = 8
 
 func _ready() -> void:
 	var level = get_parent()
 	print(level.name)
 	level.player = self
+	# inventory setup
+	for slot in slots:
+		var slot_id = "slot" + str(slot)
+		inventory[slot_id] = {}
+		inventory[slot_id]["item"] = ""
+		inventory[slot_id]["amount"] = 0
+	print(inventory)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and not lock_interaction:
@@ -66,3 +74,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+
+func add_item(item):
+	if item.item_name in Itemdatabase.item_dict: # checks to see if the item exists in the game items dictionary
+		var item_added = false # creates a variable to track if the item has been added
+		for slot in inventory:
+			if not item_added:
+				if inventory[slot]["item"] == "" and inventory[slot]["amount"] == 0:
+					inventory[slot]["item"] = item.item_name
+					inventory[slot]["amount"] = item.amount
+					item_added = true
+				elif inventory[slot]["item"] == item.item_name:
+					inventory[slot]["amount"] += item.amount
+					item_added = true
+	print(inventory)
