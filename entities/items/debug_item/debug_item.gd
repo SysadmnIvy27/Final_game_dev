@@ -21,5 +21,4 @@ func interact(entity):
 	if entity.has_method("add_item"): # for debugging only, eventually will be removed
 		entity.add_item(self)
 	if entity.has_node("inventory_manager"):
-		entity.inv_manage.add_item(self)
-		entity.inv_manager
+		entity.inventory_manager.add_item(self)
