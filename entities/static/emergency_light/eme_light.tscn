@@ -34,7 +34,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EmeLight" type="Area2D" unique_id=625407716]
+[node name="EmeLight" type="StaticBody2D" unique_id=250297832]
 script = ExtResource("1_iuykw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1673369922]
