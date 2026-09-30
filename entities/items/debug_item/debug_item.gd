@@ -20,4 +20,5 @@ func interact(entity):
 	print(self.name + " picked up by " + entity.name)
 	if entity.has_method("add_item"): # for debugging only, eventually will be removed
 		entity.add_item(self)
-	queue_free()
+	if entity.has_node("inventory_manager"):
+		entity.inventory_manager.add_item(self)
