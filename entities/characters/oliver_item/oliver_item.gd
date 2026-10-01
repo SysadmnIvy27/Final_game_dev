@@ -14,6 +14,7 @@ var move_target : Node
 @onready var turret_pivot = $turret_pivot
 @onready var projectile_spawn = $turret_pivot/projectile_spawn
 @onready var shoot_ray = $turret_pivot/RayCast2D
+@onready var inventory_manager = $inventory_manager
 # lights
 @onready var body_light = $PointLight2D
 @onready var turret_light = $turret_pivot/PointLight2D

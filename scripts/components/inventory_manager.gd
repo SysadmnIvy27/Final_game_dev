@@ -2,6 +2,7 @@ extends Node
 
 @onready var owner_entity = get_parent()
 @export var slots = 8
+@export var debug = false
 var inventory = {}
 
 # Called when the node enters the scene tree for the first time.
@@ -12,8 +13,9 @@ func _ready() -> void:
 		inventory[slot_id] = {}
 		inventory[slot_id]["item"] = ""
 		inventory[slot_id]["amount"] = 0
-	print(owner_entity.name)
-	print(inventory)
+	if debug:
+		print(owner_entity.name)
+		print(inventory)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,5 +35,5 @@ func add_item(item):
 					inventory[slot]["amount"] += item.amount
 					item.queue_free()
 					item_added = true
-			
-	print(inventory)
+	if debug:
+		print(inventory)

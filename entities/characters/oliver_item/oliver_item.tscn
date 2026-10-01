@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://clpy1wbfmhi0x" path="res://assets/lighting/2d_lights_and_shadows_neutral_point_light.webp" id="7_3a2o3"]
 [ext_resource type="Texture2D" uid="uid://cy1hgugot6d48" path="res://assets/items/oliver/olivar_turret.png" id="7_ywte1"]
 [ext_resource type="Texture2D" uid="uid://d0qoomshqi1uf" path="res://assets/lighting/cone_512x512_KiJ3ATsN_clobie.itch.io.png" id="8_7ggjc"]
+[ext_resource type="Script" uid="uid://bh1b7ax8y0fa3" path="res://scripts/components/inventory_manager.gd" id="10_prhmd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cw7c"]
 size = Vector2(49, 20)
@@ -205,3 +206,6 @@ visible = false
 scale = Vector2(0.347391, 0.35111338)
 energy = 0.5
 texture = ExtResource("7_3a2o3")
+
+[node name="inventory_manager" type="Node" parent="." unique_id=1962746391]
+script = ExtResource("10_prhmd")
